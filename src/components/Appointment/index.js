@@ -8,6 +8,7 @@ import Status from "./Status";
 import Error from "./Error";
 import Form from "./Form";
 import useVisualMode from 'hooks/useVisualMode';
+import { getInterviewersForDay } from 'helpers/Selectors';
 
 
 const EMPTY = "EMPTY";
@@ -15,6 +16,9 @@ const SHOW = "SHOW";
 const CREATE = "CREATE"
 
 export default function Appointment(props) {
+ 
+
+  // const interviewers = getInterviewersForDay(state, state.days)
 
  
   const { mode, transition, back } = useVisualMode(

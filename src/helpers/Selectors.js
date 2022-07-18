@@ -10,15 +10,30 @@ export function getAppointmentsForDay(state, day) {
     }
   }
   return filteredDays;
-}
+};
 
 export function getInterview(state, interview) { 
   const obj = {};
-  if(interview) { //if given an interview
-    obj["student"] = interview.student // the new obj will have name of student
-    obj["interviewer"] = state.interviewers[interview.interviewer] // and the interviwer will have object
+  if(interview) { 
+    obj["student"] = interview.student 
+    obj["interviewer"] = state.interviewers[interview.interviewer] 
   } else {
     return null
   }
    return obj;
-} 
+};
+
+
+export function getInterviewersForDay(state, day) {
+  const filteredInterviewers = [];
+  for (const obj of state.days) {
+    if (obj.name === day) {
+      for (const int of obj.interviewers) {
+        if (state.interviewers[int]) {
+          filteredInterviewers.push(state.interviewers[int]);
+        }
+      }
+    }
+  }
+  return filteredInterviewers;
+};
