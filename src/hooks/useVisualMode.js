@@ -2,9 +2,9 @@ import { useState } from "react";
 
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
-  const [history, setHistory] = useState([initial]); // This line is new!
+  const [history, setHistory] = useState([initial]); 
 
-  function transition(newMode, replace = false) { //set the new view as the mode
+  function transition(newMode, replace = false) { 
     setMode(newMode);
 
     if (replace) {
@@ -14,11 +14,10 @@ export default function useVisualMode(initial) {
       setHistory((prev) => [...prev, newMode]);
     }
   }
-    // console.log(mode)
-  function back() { //to go back, if history array more then 1
-    if (history.length >  1) { //remove the last one
+  function back() { 
+    if (history.length >  1) { 
       history.pop(); 
-      setMode(history[history.length - 1]); //set the new mode to whatever the histry was  minus one
+      setMode(history[history.length - 1]); 
     }
   }
 
