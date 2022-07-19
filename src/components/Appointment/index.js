@@ -8,6 +8,7 @@ import Status from "./Status";
 import Error from "./Error";
 import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
+import useApplicationData from "hooks/useApplicationData";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
