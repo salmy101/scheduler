@@ -8,15 +8,18 @@ export default function useVisualMode(initial) {
     setMode(newMode);
 
     if (replace) {
-      history.pop();
-      setHistory((prev) => [...prev, newMode]);
+      const clonedHistory = [...history]
+      clonedHistory.pop();
+      setHistory(() => [...clonedHistory, newMode]);
     } else {
       setHistory((prev) => [...prev, newMode]);
     }
   }
   function back() { 
     if (history.length >  1) { 
-      history.pop(); 
+      const clonedHistory = [...history]
+      clonedHistory.pop(); 
+      setHistory(() => [...clonedHistory])
       setMode(history[history.length - 1]); 
     }
   }
