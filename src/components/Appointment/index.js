@@ -59,9 +59,9 @@ export default function Appointment(props) {
   }
 
   //transition to edit an existing appointment
-  function edit() {
-    transition(EDIT);
-  }
+  // function edit() {
+  //   transition(EDIT);
+  // }
 
   return (
     <article className="appointment">
@@ -112,7 +112,7 @@ export default function Appointment(props) {
         message={"Error, could not delete appointment"}
         onClose={()=> back()}
         />}
-        
+
     </article>
   );
 }
