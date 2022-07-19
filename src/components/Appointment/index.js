@@ -36,13 +36,15 @@ export default function Appointment(props) {
     .then(() => transition(SHOW))
   }
 
+    function confirm() {
+      transition(CONFIRM);
+    }
 
   function cancel(name, interviewer) {
     const interview = {
       student: name,
       interviewer
     };  
-    transition(CONFIRM);
     transition(DELETING); 
 
     props.cancelInterview(props.id, interview)
@@ -66,9 +68,9 @@ export default function Appointment(props) {
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
-          onDelete={cancel}
+          onDelete={confirm}
         />)}
-        {mode === CONFIRM && <Confirm />}
+        {mode === CONFIRM && <Confirm message={"Are you sure you want to delete?"}onCancel={() => back()} onConfirm={cancel} />}
         {mode === DELETING && <Status message={"DELETING..."}/> }
 
       
