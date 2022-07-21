@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
-import updateSpots from "helpers/updateSpots";
 
 
 
@@ -46,7 +45,7 @@ export default function useApplicationData() {
   
       const updatedDay = {...currentDay}; //copy current day
       updatedDay.spots = countSpots(state); //modify it by adding updated num of spots
-      console.log("SPOTSCOUNT:", countSpots(state))
+      // console.log("SPOTSCOUNT:", countSpots(state))
   
       const updatedDayArr = [...state.days] //copy the days array
       updatedDayArr[currentDayIndex] = updatedDay //modify days array by adding the modified current day(find by index) t
@@ -54,7 +53,7 @@ export default function useApplicationData() {
       const updatedState = {...state} //copy the state
       updatedState.days = updatedDayArr // modify the state by adding the updated days array
    
-      console.log("UPDATEDSTATE:", updatedState.appointments);
+      // console.log("UPDATEDSTATE:", updatedState.appointments);
       
       setState({
         ...state,
@@ -67,7 +66,7 @@ export default function useApplicationData() {
 
   //Book an Interview
   function bookInterview(id, interview) {
-    console.log("BOOKED:", id, interview);
+    // console.log("BOOKED:", id, interview);
 
     const appointment = {
       ...state.appointments[id],
@@ -86,15 +85,15 @@ export default function useApplicationData() {
         }) 
         updateSpots({...state,appointments}); 
         
-        console.log(countSpots(state));
+        // console.log(countSpots(state));
 
 
       })
   }
-
+  
   //Delete the interview
   function cancelInterview(id, interview) { 
-    console.log("DELETED:", id, interview)
+    // console.log("DELETED:", id, interview)
 
     const appointment = { 
       ...state.appointments[id],
@@ -111,10 +110,9 @@ export default function useApplicationData() {
           appointments
         })
         updateSpots({...state,appointments}); 
-        console.log(appointments);
+        // console.log(appointments);
       })
   } 
-
   
   return { state, setDay, bookInterview, cancelInterview };
 
