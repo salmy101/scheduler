@@ -16,9 +16,9 @@ export default function useApplicationData() {
   const setMany = many => setState({ ...state, ...many });
 
   useEffect(() => {
-    const daysURL = `http://localhost:8001/api/days`;
-    const apptURL = `http://localhost:8001/api/appointments`;
-    const intrURL = `http://localhost:8001/api/interviewers`;
+    const daysURL = `/api/days`;
+    const apptURL = `/api/appointments`;
+    const intrURL = `/api/interviewers`;
       Promise.all([
         axios.get(daysURL),
         axios.get(apptURL),
@@ -55,8 +55,14 @@ export default function useApplicationData() {
       updatedState.days = updatedDayArr // modify the state by adding the updated days array
    
       console.log("UPDATEDSTATE:", updatedState.appointments);
+      
+      setState({
+        ...state,
+        appointments: updatedState.appointments,
+        days: updatedDayArr
+      }) 
 
-      return updatedState
+      return state
     }
 
   //Book an Interview
@@ -73,13 +79,15 @@ export default function useApplicationData() {
     };
     return axios.put(`/api/appointments/${id}`, {interview})
       .then(() => {
-        console.log(countSpots(state));
         // console.log("Initial Days State", state.days);
         setState({
           ...state,
           appointments
         }) 
         updateSpots({...state,appointments}); 
+        
+        console.log(countSpots(state));
+
 
       })
   }
@@ -98,12 +106,12 @@ export default function useApplicationData() {
     } 
     return axios.delete(`/api/appointments/${id}`)
       .then(() => {
-        console.log(appointments);
         setState({
           ...state,
           appointments
         })
         updateSpots({...state,appointments}); 
+        console.log(appointments);
       })
   } 
 
