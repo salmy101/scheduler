@@ -4,6 +4,13 @@
 This project is a React application where you can book appointments with an interviewer from Monday - Friday between the hours of 12pm to 5pm, 1 hour each. You are able to select an available time slot, place your name and pick the interviewer. You can also come back and edit or delete the appointment. 
 
 
+## Video and Images
+![Empty Slot](https://myoctocat.com/assets/images/base-octocat.svg)
+
+
+
+
+
 ## Running Webpack Development Server
 
 ```sh
