@@ -178,11 +178,13 @@ describe("Application", () => {
     // 6. Check that the element with the text "Deleting" is displayed.
     expect(getByText(appointment, "DELETING...")).toBeInTheDocument();
 
+    //7. check for correct error msg and close
     await waitForElement(() =>
       getByText(appointment, "Error, could not delete appointment")
     );
     fireEvent.click(getByAltText(appointment, "Close"));
 
+    //9. make sure days  still has 1 spot
     const day = getAllByTestId(container, "day").find((day) =>
       queryByText(day, "Monday")
     );

@@ -1,3 +1,4 @@
+
 export function getAppointmentsForDay(state, day) {
   const filteredDays = [];
   for (const obj of state.days) {
@@ -12,17 +13,16 @@ export function getAppointmentsForDay(state, day) {
   return filteredDays;
 };
 
-export function getInterview(state, interview) { 
+export function getInterview(state, interview) {
   const obj = {};
-  if(interview) { 
-    obj["student"] = interview.student 
-    obj["interviewer"] = state.interviewers[interview.interviewer] 
+  if (interview) {
+    obj["student"] = interview.student;
+    obj["interviewer"] = state.interviewers[interview.interviewer];
   } else {
-    return null
+    return null;
   }
-   return obj;
+  return obj;
 };
-
 
 export function getInterviewersForDay(state, day) {
   const filteredInterviewers = [];

@@ -59,11 +59,6 @@ export default function Appointment(props) {
 
   }
 
-  //transition to edit an existing appointment
-  // function edit() {
-  //   transition(EDIT);
-  // }
-
   return (
     <article data-testid="appointment" className="appointment">
       <Header time={props.time} />
@@ -100,7 +95,7 @@ export default function Appointment(props) {
           student={props.interview.student}
           interviewers={props.interviewers}
           interviewer={props.interview.interviewer.id}
-          onSave={save} //save the changes
+          onSave={save} 
           onCancel={() => back()}
         />
       )}
