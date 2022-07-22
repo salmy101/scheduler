@@ -5,9 +5,20 @@ This project is a React application where you can book appointments with an inte
 
 
 ## Video and Images
-![Empty Slot](https://myoctocat.com/assets/images/base-octocat.svg)
+
+### Empty Slot
+![Empty Slot](https://github.com/salmy101/scheduler/blob/master/docs/empty.png?raw=true)
+
+### Create an Appointment
+![Creating appointment](https://github.com/salmy101/scheduler/blob/master/docs/creating.png?raw=true) 
 
 
+### View the New Appointment
+![Show New appointment](https://github.com/salmy101/scheduler/blob/master/docs/show.png?raw=true)
+
+
+### Delete the Appointment
+![Deleting Slot](https://github.com/salmy101/scheduler/blob/master/docs/deleting.png?raw=true)
 
 
 
